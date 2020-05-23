@@ -13,16 +13,6 @@ class PostForm(ModelForm):
     class Meta:
         model=Post
         fields=['title','content']
-        '''widgets={
-            'title':forms.TextInput(attrs={
-                'class':'form_input',
-                 'value':x
-            }),
-            'content':forms.TextInput(attrs={
-                'class':'form_input',
-                'placeholder':'detpa'
-            }),
-        }'''
 from django import forms
 class temp(forms.Form):
      title=forms.CharField(max_length=100)

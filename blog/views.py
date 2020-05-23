@@ -34,9 +34,9 @@ def home(request):
     b=Post.objects.all()
     l=[]
     avtar=d[request.user.id][1]
-    print (d)
+   
     for i in b:
-        print (i.author)
+        
         url='/user/profile'+str(i.author)+"/"
         t=post("      "+d[i.author][0],i.title,i.content,d[i.author][1],i.posted_on,url)
         l.append(t)
@@ -51,7 +51,7 @@ def addblog(request):
             avtar=i.avatar
             break
     if request.method=='POST':
-        form=PostForm(request.POST,initial={'title':2142,'content':123})
+        form=PostForm(request.POST)
         if form.is_valid():
             post=form.save(commit=False)
             blog=Post(title=form.cleaned_data.get('title'),content=form.cleaned_data.get('content'),posted_on=timezone.now(),author=request.user.id)
@@ -60,9 +60,3 @@ def addblog(request):
     else:
         form=PostForm()
     return render(request,'blog/addblog.html',{'form':form,'avatar':avtar})
-'''def like(request, picture_id):
-    new_like, created = Like.objects.get_or_create(user=request.user, picture_id=picture_id)
-    if not created:
-        # the user already liked this picture before
-    else:
-        # oll korrekt'''
