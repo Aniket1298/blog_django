@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for project project.
 
@@ -24,9 +25,8 @@ SECRET_KEY = 'lkfqvrp4#*i25mz5-5z!+)3jn2-b!86$qd!z%2skzzj7bcjuv2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
+'pyrites.herokuapp.com']
 
 # Application definition
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+EMAIL_HOST_USER = os.environ.get('kumaraniket899@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('aniket11')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -76,6 +78,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES = {
 
@@ -94,7 +97,8 @@ DATABASES = {
 
     }
 }
-
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 FIREBASE_ORM_CERTIFICATE = 'path/to/serviceAccountKey.json'
