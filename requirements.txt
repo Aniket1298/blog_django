@@ -3,7 +3,7 @@ aniso8601==8.0.0
 antigravity==0.1
 appdirs==1.4.4
 beautifulsoup4==4.8.2
-bleach==3.1.1
+bleach==3.1.4
 blinker==1.4
 bootstrap4==0.1.0
 boto==2.49.0
