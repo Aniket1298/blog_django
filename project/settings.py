@@ -78,15 +78,27 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'blogdb',
+
+        'USER': 'aniket3',
+
+        'PASSWORD': 'aniket3',
+
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+FIREBASE_ORM_CERTIFICATE = 'path/to/serviceAccountKey.json'
+FIREBASE_ORM_BUCKET_NAME = '<BUCKET_NAME>.appspot.com'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
