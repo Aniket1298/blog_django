@@ -1,4 +1,4 @@
-import dj_database_url
+
 """
 Django settings for project project.
 
@@ -97,13 +97,6 @@ DATABASES = {
 
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-# Password validation
-# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-FIREBASE_ORM_CERTIFICATE = 'path/to/serviceAccountKey.json'
-FIREBASE_ORM_BUCKET_NAME = '<BUCKET_NAME>.appspot.com'
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
