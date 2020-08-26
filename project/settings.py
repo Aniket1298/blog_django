@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lkfqvrp4#*i25mz5-5z!+)3jn2-b!86$qd!z%2skzzj7bcjuv2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
 'pyrites.herokuapp.com']
 
